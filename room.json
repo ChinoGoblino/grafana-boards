@@ -38,7 +38,7 @@
             },
             "custom": {
               "axisPlacement": "auto",
-              "fillOpacity": 70,
+              "fillOpacity": 100,
               "hideFrom": {
                 "legend": false,
                 "tooltip": false,
