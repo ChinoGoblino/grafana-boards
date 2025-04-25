@@ -1181,7 +1181,7 @@
             {
               "matcher": {
                 "id": "byName",
-                "options": "sensor.apollo_air_1_0ec7e0_pm_1_m_weight_concentration 1745556439044"
+                "options": "sensor.apollo_air_1_0ec7e0_pm_1_m_weight_concentration"
               },
               "properties": [
                 {
@@ -1212,7 +1212,7 @@
             {
               "matcher": {
                 "id": "byName",
-                "options": "sensor.apollo_air_1_0ec7e0_pm_2_5_m_weight_concentration 1745556439049"
+                "options": "sensor.apollo_air_1_0ec7e0_pm_2_5_m_weight_concentration"
               },
               "properties": [
                 {
@@ -1243,7 +1243,7 @@
             {
               "matcher": {
                 "id": "byName",
-                "options": "sensor.apollo_air_1_0ec7e0_pm_4_m_weight_concentration 1745556439052"
+                "options": "sensor.apollo_air_1_0ec7e0_pm_4_m_weight_concentration"
               },
               "properties": [
                 {
@@ -1274,7 +1274,7 @@
             {
               "matcher": {
                 "id": "byName",
-                "options": "sensor.apollo_air_1_0ec7e0_pm_10_m_weight_concentration 1745556439054"
+                "options": "sensor.apollo_air_1_0ec7e0_pm_10_m_weight_concentration"
               },
               "properties": [
                 {
