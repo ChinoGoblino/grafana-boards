@@ -973,7 +973,7 @@
           "legend": {
             "displayMode": "list",
             "placement": "bottom",
-            "showLegend": true,
+            "showLegend": false,
             "values": [
               "percent"
             ]
