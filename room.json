@@ -1057,7 +1057,15 @@
               }
             }
           },
-          "overrides": []
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "PM 1"
+              },
+              "properties": []
+            }
+          ]
         },
         "gridPos": {
           "h": 8,
@@ -1067,9 +1075,16 @@
         },
         "id": 8,
         "options": {
-          "calculate": true,
+          "calculate": false,
           "calculation": {
             "xBuckets": {
+              "value": ""
+            },
+            "yBuckets": {
+              "mode": "size",
+              "scale": {
+                "type": "linear"
+              },
               "value": ""
             }
           },
