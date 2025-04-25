@@ -1676,110 +1676,17 @@
             "color": {
               "mode": "thresholds"
             },
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green"
-                }
-              ]
-            },
-            "unit": "celsius"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 8,
-          "w": 3,
-          "x": 0,
-          "y": 20
-        },
-        "id": 21,
-        "options": {
-          "colorMode": "value",
-          "graphMode": "none",
-          "justifyMode": "auto",
-          "orientation": "auto",
-          "percentChangeColorMode": "standard",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showPercentChange": false,
-          "textMode": "auto",
-          "wideLayout": true
-        },
-        "pluginVersion": "11.6.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "questdb-questdb-datasource",
-              "uid": "eeikx6308epdsd"
-            },
-            "format": 1,
-            "meta": {
-              "builderOptions": {
-                "fields": [],
-                "limit": "",
-                "mode": "list",
-                "timeField": ""
-              }
-            },
-            "queryType": "sql",
-            "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_sen55_temperature'",
-            "refId": "A",
-            "selectedFormat": 2
-          }
-        ],
-        "title": "Temperature",
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "datasource",
-          "uid": "-- Mixed --"
-        },
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
-            },
             "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
               "axisPlacement": "auto",
-              "barAlignment": 0,
-              "barWidthFactor": 0.6,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
+              "fillOpacity": 70,
               "hideFrom": {
                 "legend": false,
                 "tooltip": false,
                 "viz": false
               },
               "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "never",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
+              "lineWidth": 0,
+              "spanNulls": false
             },
             "mappings": [],
             "thresholds": {
@@ -1790,38 +1697,32 @@
                 }
               ]
             },
-            "unit": "celsius"
+            "unit": "conμgm3"
           },
           "overrides": [
             {
               "matcher": {
                 "id": "byName",
-                "options": "B json_extract"
+                "options": "PM 1"
               },
               "properties": [
                 {
-                  "id": "displayName",
-                  "value": "Forecast Temperature"
-                },
-                {
-                  "id": "color",
+                  "id": "thresholds",
                   "value": {
-                    "fixedColor": "purple",
-                    "mode": "shades"
-                  }
-                },
-                {
-                  "id": "custom.fillOpacity",
-                  "value": 8
-                },
-                {
-                  "id": "custom.lineStyle",
-                  "value": {
-                    "dash": [
-                      10,
-                      10
-                    ],
-                    "fill": "dash"
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green"
+                      },
+                      {
+                        "color": "#EAB839",
+                        "value": 5
+                      },
+                      {
+                        "color": "red",
+                        "value": 10
+                      }
+                    ]
                   }
                 }
               ]
@@ -1829,65 +1730,81 @@
             {
               "matcher": {
                 "id": "byName",
-                "options": "E json_extract"
+                "options": "PM 2.5"
               },
               "properties": [
                 {
-                  "id": "displayName",
-                  "value": "Room Temperature (Airtouch)"
-                },
-                {
-                  "id": "color",
+                  "id": "thresholds",
                   "value": {
-                    "fixedColor": "blue",
-                    "mode": "shades"
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green"
+                      },
+                      {
+                        "color": "#EAB839",
+                        "value": 10
+                      },
+                      {
+                        "color": "red",
+                        "value": 15
+                      }
+                    ]
                   }
-                },
-                {
-                  "id": "custom.fillOpacity",
-                  "value": 8
                 }
               ]
             },
             {
               "matcher": {
                 "id": "byName",
-                "options": "Sun altitude"
+                "options": "PM 4"
               },
               "properties": [
                 {
-                  "id": "color",
+                  "id": "thresholds",
                   "value": {
-                    "mode": "continuous-BlYlRd",
-                    "seriesBy": "max"
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green"
+                      },
+                      {
+                        "color": "#EAB839",
+                        "value": 15
+                      },
+                      {
+                        "color": "red",
+                        "value": 20
+                      }
+                    ]
                   }
-                },
-                {
-                  "id": "custom.gradientMode",
-                  "value": "scheme"
                 }
               ]
             },
             {
               "matcher": {
                 "id": "byName",
-                "options": "D cast"
+                "options": "PM 10"
               },
               "properties": [
                 {
-                  "id": "displayName",
-                  "value": "Room Temperature (Apollo Air)"
-                },
-                {
-                  "id": "color",
+                  "id": "thresholds",
                   "value": {
-                    "fixedColor": "orange",
-                    "mode": "shades"
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green"
+                      },
+                      {
+                        "color": "#EAB839",
+                        "value": 25
+                      },
+                      {
+                        "color": "red",
+                        "value": 30
+                      }
+                    ]
                   }
-                },
-                {
-                  "id": "custom.fillOpacity",
-                  "value": 8
                 }
               ]
             }
@@ -1895,18 +1812,21 @@
         },
         "gridPos": {
           "h": 8,
-          "w": 9,
-          "x": 3,
+          "w": 6,
+          "x": 2,
           "y": 20
         },
-        "id": 1,
+        "id": 27,
         "options": {
+          "alignValue": "left",
           "legend": {
-            "calcs": [],
             "displayMode": "list",
             "placement": "bottom",
             "showLegend": true
           },
+          "mergeValues": false,
+          "rowHeight": 0.9,
+          "showValue": "auto",
           "tooltip": {
             "hideZeros": false,
             "mode": "single",
@@ -1921,7 +1841,6 @@
               "uid": "eeikx6308epdsd"
             },
             "format": 1,
-            "hide": false,
             "meta": {
               "builderOptions": {
                 "fields": [],
@@ -1931,53 +1850,35 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_sen55_temperature'",
-            "refId": "D",
-            "selectedFormat": 2
-          },
-          {
-            "datasource": {
-              "type": "questdb-questdb-datasource",
-              "uid": "eeikx6308epdsd"
-            },
-            "format": 1,
-            "hide": false,
-            "meta": {
-              "builderOptions": {
-                "fields": [],
-                "limit": "",
-                "mode": "list",
-                "timeField": ""
-              }
-            },
-            "queryType": "sql",
-            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.current_temperature')::float\nfrom qss\nwhere entity_id = 'climate.ethan'",
-            "refId": "E",
-            "selectedFormat": 2
-          },
-          {
-            "datasource": {
-              "type": "questdb-questdb-datasource",
-              "uid": "eeikx6308epdsd"
-            },
-            "format": 1,
-            "hide": false,
-            "meta": {
-              "builderOptions": {
-                "fields": [],
-                "limit": "",
-                "mode": "list",
-                "timeField": ""
-              }
-            },
-            "queryType": "sql",
-            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.temperature')::float\nfrom qss\nwhere entity_id = 'weather.forecast_home'",
-            "refId": "B",
+            "rawSql": "select timestamp, entity_id, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_pm_10_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_1_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_2_5_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_4_m_weight_concentration'\nsample by 1m;",
+            "refId": "A",
             "selectedFormat": 2
           }
         ],
-        "title": "Temperature",
-        "type": "timeseries"
+        "title": "Particulates",
+        "transformations": [
+          {
+            "id": "prepareTimeSeries",
+            "options": {
+              "format": "multi"
+            }
+          },
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": ".*pm_(\\d+)(?:_(\\d))?_m_weight_concentration",
+              "renamePattern": "PM $1.$2"
+            }
+          },
+          {
+            "id": "renameByRegex",
+            "options": {
+              "regex": "PM (\\d+).",
+              "renamePattern": "PM $1"
+            }
+          }
+        ],
+        "type": "state-timeline"
       },
       {
         "datasource": {
@@ -2228,6 +2129,319 @@
         ],
         "title": "Pressure",
         "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "questdb-questdb-datasource",
+          "uid": "eeikx6308epdsd"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 3,
+          "x": 0,
+          "y": 28
+        },
+        "id": 21,
+        "options": {
+          "colorMode": "value",
+          "graphMode": "none",
+          "justifyMode": "auto",
+          "orientation": "auto",
+          "percentChangeColorMode": "standard",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showPercentChange": false,
+          "textMode": "auto",
+          "wideLayout": true
+        },
+        "pluginVersion": "11.6.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "questdb-questdb-datasource",
+              "uid": "eeikx6308epdsd"
+            },
+            "format": 1,
+            "meta": {
+              "builderOptions": {
+                "fields": [],
+                "limit": "",
+                "mode": "list",
+                "timeField": ""
+              }
+            },
+            "queryType": "sql",
+            "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_sen55_temperature'",
+            "refId": "A",
+            "selectedFormat": 2
+          }
+        ],
+        "title": "Temperature",
+        "type": "stat"
+      },
+      {
+        "datasource": {
+          "type": "datasource",
+          "uid": "-- Mixed --"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisBorderShow": false,
+              "axisCenteredZero": false,
+              "axisColorMode": "text",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "barWidthFactor": 0.6,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "never",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                }
+              ]
+            },
+            "unit": "celsius"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "B json_extract"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Forecast Temperature"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "purple",
+                    "mode": "shades"
+                  }
+                },
+                {
+                  "id": "custom.fillOpacity",
+                  "value": 8
+                },
+                {
+                  "id": "custom.lineStyle",
+                  "value": {
+                    "dash": [
+                      10,
+                      10
+                    ],
+                    "fill": "dash"
+                  }
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "E json_extract"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Room Temperature (Airtouch)"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "blue",
+                    "mode": "shades"
+                  }
+                },
+                {
+                  "id": "custom.fillOpacity",
+                  "value": 8
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Sun altitude"
+              },
+              "properties": [
+                {
+                  "id": "color",
+                  "value": {
+                    "mode": "continuous-BlYlRd",
+                    "seriesBy": "max"
+                  }
+                },
+                {
+                  "id": "custom.gradientMode",
+                  "value": "scheme"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "D cast"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Room Temperature (Apollo Air)"
+                },
+                {
+                  "id": "color",
+                  "value": {
+                    "fixedColor": "orange",
+                    "mode": "shades"
+                  }
+                },
+                {
+                  "id": "custom.fillOpacity",
+                  "value": 8
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 9,
+          "x": 3,
+          "y": 28
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "hideZeros": false,
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "pluginVersion": "11.6.0",
+        "targets": [
+          {
+            "datasource": {
+              "type": "questdb-questdb-datasource",
+              "uid": "eeikx6308epdsd"
+            },
+            "format": 1,
+            "hide": false,
+            "meta": {
+              "builderOptions": {
+                "fields": [],
+                "limit": "",
+                "mode": "list",
+                "timeField": ""
+              }
+            },
+            "queryType": "sql",
+            "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_sen55_temperature'",
+            "refId": "D",
+            "selectedFormat": 2
+          },
+          {
+            "datasource": {
+              "type": "questdb-questdb-datasource",
+              "uid": "eeikx6308epdsd"
+            },
+            "format": 1,
+            "hide": false,
+            "meta": {
+              "builderOptions": {
+                "fields": [],
+                "limit": "",
+                "mode": "list",
+                "timeField": ""
+              }
+            },
+            "queryType": "sql",
+            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.current_temperature')::float\nfrom qss\nwhere entity_id = 'climate.ethan'",
+            "refId": "E",
+            "selectedFormat": 2
+          },
+          {
+            "datasource": {
+              "type": "questdb-questdb-datasource",
+              "uid": "eeikx6308epdsd"
+            },
+            "format": 1,
+            "hide": false,
+            "meta": {
+              "builderOptions": {
+                "fields": [],
+                "limit": "",
+                "mode": "list",
+                "timeField": ""
+              }
+            },
+            "queryType": "sql",
+            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.temperature')::float\nfrom qss\nwhere entity_id = 'weather.forecast_home'",
+            "refId": "B",
+            "selectedFormat": 2
+          }
+        ],
+        "title": "Temperature",
+        "type": "timeseries"
       }
     ],
     "preload": false,
