@@ -1014,7 +1014,7 @@
             "selectedFormat": 2
           }
         ],
-        "title": "Particulates",
+        "title": "Particulate Composition",
         "transformations": [
           {
             "id": "prepareTimeSeries",
