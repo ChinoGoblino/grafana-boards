@@ -2069,19 +2069,20 @@
         "fieldConfig": {
           "defaults": {
             "color": {
-              "mode": "palette-classic"
+              "mode": "continuous-RdYlGr",
+              "seriesBy": "last"
             },
             "custom": {
               "axisBorderShow": false,
-              "axisCenteredZero": false,
+              "axisCenteredZero": true,
               "axisColorMode": "text",
               "axisLabel": "",
               "axisPlacement": "auto",
               "barAlignment": 0,
               "barWidthFactor": 0.6,
               "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
+              "fillOpacity": 9,
+              "gradientMode": "scheme",
               "hideFrom": {
                 "legend": false,
                 "tooltip": false,
@@ -2115,64 +2116,7 @@
             },
             "unit": "pressurehpa"
           },
-          "overrides": [
-            {
-              "matcher": {
-                "id": "byName",
-                "options": "json_extract"
-              },
-              "properties": [
-                {
-                  "id": "displayName",
-                  "value": "Forecast Pressure"
-                },
-                {
-                  "id": "color",
-                  "value": {
-                    "fixedColor": "purple",
-                    "mode": "shades"
-                  }
-                },
-                {
-                  "id": "custom.fillOpacity",
-                  "value": 8
-                },
-                {
-                  "id": "custom.lineStyle",
-                  "value": {
-                    "dash": [
-                      10,
-                      10
-                    ],
-                    "fill": "dash"
-                  }
-                }
-              ]
-            },
-            {
-              "matcher": {
-                "id": "byName",
-                "options": "B cast"
-              },
-              "properties": [
-                {
-                  "id": "displayName",
-                  "value": "Room Pressure"
-                },
-                {
-                  "id": "color",
-                  "value": {
-                    "fixedColor": "blue",
-                    "mode": "shades"
-                  }
-                },
-                {
-                  "id": "custom.fillOpacity",
-                  "value": 8
-                }
-              ]
-            }
-          ]
+          "overrides": []
         },
         "gridPos": {
           "h": 8,
@@ -2186,7 +2130,7 @@
             "calcs": [],
             "displayMode": "list",
             "placement": "bottom",
-            "showLegend": true
+            "showLegend": false
           },
           "tooltip": {
             "hideZeros": false,
@@ -2202,6 +2146,7 @@
               "uid": "eeikx6308epdsd"
             },
             "format": 1,
+            "hide": true,
             "meta": {
               "builderOptions": {
                 "fields": [],
@@ -2221,7 +2166,7 @@
               "uid": "eeikx6308epdsd"
             },
             "format": 1,
-            "hide": false,
+            "hide": true,
             "meta": {
               "builderOptions": {
                 "fields": [],
@@ -2234,9 +2179,29 @@
             "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_dps310_pressure'",
             "refId": "B",
             "selectedFormat": 2
+          },
+          {
+            "datasource": {
+              "type": "questdb-questdb-datasource",
+              "uid": "eeikx6308epdsd"
+            },
+            "format": 1,
+            "hide": false,
+            "meta": {
+              "builderOptions": {
+                "fields": [],
+                "limit": "",
+                "mode": "list",
+                "timeField": ""
+              }
+            },
+            "queryType": "sql",
+            "rawSql": "SELECT \n    indoor.p1 - outdoor.p2 AS pressure_difference,\n    indoor.timestamp\nFROM (\n    SELECT \n        cast(state as double) as p1,\n        timestamp\n    FROM qss\n    WHERE entity_id = 'sensor.apollo_air_1_0ec7e0_dps310_pressure'\n) AS indoor\nASOF JOIN (\n    SELECT \n        json_extract(attributes, '$.pressure')::float as p2,\n        timestamp\n    FROM qss\n    WHERE entity_id = 'weather.forecast_home'\n) AS outdoor\nON timestamp\n",
+            "refId": "C",
+            "selectedFormat": 2
           }
         ],
-        "title": "Pressure",
+        "title": "Pressure Difference",
         "type": "timeseries"
       },
       {
