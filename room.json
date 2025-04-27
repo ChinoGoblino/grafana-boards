@@ -1720,7 +1720,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.humidity')::float\nfrom qss\nwhere entity_id = 'weather.forecast_home'",
+            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.humidity')::float\nfrom qss\nwhere entity_id = 'weather.forecast_home'\nand timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "A",
             "selectedFormat": 2
           },
@@ -1740,7 +1740,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_sen55_humidity'",
+            "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_sen55_humidity'\nand timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "B",
             "selectedFormat": 2
           }
