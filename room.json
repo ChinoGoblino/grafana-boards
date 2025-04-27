@@ -2102,7 +2102,7 @@
                 "mode": "none"
               },
               "thresholdsStyle": {
-                "mode": "off"
+                "mode": "dashed"
               }
             },
             "mappings": [],
@@ -2111,6 +2111,10 @@
               "steps": [
                 {
                   "color": "green"
+                },
+                {
+                  "color": "blue",
+                  "value": 0
                 }
               ]
             },
