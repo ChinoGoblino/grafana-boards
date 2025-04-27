@@ -1009,7 +1009,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select first(timestamp), entity_id, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_pm_10_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_1_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_2_5_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_4_m_weight_concentration'\n  and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime \nsample by $__interval;",
+            "rawSql": "select timestamp, entity_id, cast(first(state) as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_pm_10_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_1_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_2_5_m_weight_concentration'\n  or entity_id = 'sensor.apollo_air_1_0ec7e0_pm_4_m_weight_concentration'\norder by timestamp desc\nlimit 4;",
             "refId": "A",
             "selectedFormat": 2
           }
