@@ -2013,7 +2013,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_sen55_temperature'",
+            "rawSql": "select timestamp, cast(state as double)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_sen55_temperature'\nand timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "D",
             "selectedFormat": 2
           },
@@ -2033,7 +2033,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.current_temperature')::float\nfrom qss\nwhere entity_id = 'climate.ethan'",
+            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.current_temperature')::float\nfrom qss\nwhere entity_id = 'climate.ethan'\nand timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "E",
             "selectedFormat": 2
           },
@@ -2053,7 +2053,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.temperature')::float\nfrom qss\nwhere entity_id = 'weather.forecast_home'",
+            "rawSql": "select timestamp, entity_id, json_extract(attributes, '$.temperature')::float\nfrom qss\nwhere entity_id = 'weather.forecast_home'\nand timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "B",
             "selectedFormat": 2
           }
