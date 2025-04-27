@@ -693,7 +693,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select timestamp, cast(state as int)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_co2'",
+            "rawSql": "select timestamp, cast(state as int)\nfrom qss\nwhere entity_id = 'sensor.apollo_air_1_0ec7e0_co2'\nand timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "A",
             "selectedFormat": 2
           }
