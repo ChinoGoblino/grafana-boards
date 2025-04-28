@@ -1190,6 +1190,7 @@
           "y": 12
         },
         "id": 27,
+        "interval": "1m",
         "options": {
           "alignValue": "left",
           "legend": {
@@ -2123,7 +2124,7 @@
           "overrides": []
         },
         "gridPos": {
-          "h": 8,
+          "h": 6,
           "w": 9,
           "x": 12,
           "y": 22
@@ -2232,7 +2233,7 @@
           "overrides": []
         },
         "gridPos": {
-          "h": 8,
+          "h": 6,
           "w": 3,
           "x": 21,
           "y": 22
