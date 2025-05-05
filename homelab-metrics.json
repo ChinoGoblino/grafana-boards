@@ -1688,7 +1688,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT timestamp, download \nFROM internet_speed\nWHERE host = 'exodus' ",
+            "rawSql": "SELECT timestamp, download \nFROM internet_speed\nWHERE host = 'exodus' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "A",
             "selectedFormat": 2
           },
@@ -1708,7 +1708,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT timestamp, upload \nFROM internet_speed\nWHERE host = 'exodus' ",
+            "rawSql": "SELECT timestamp, upload \nFROM internet_speed\nWHERE host = 'exodus' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "B",
             "selectedFormat": 2
           }
