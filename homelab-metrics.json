@@ -1400,7 +1400,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT download \nFROM internet_speed\nwhere host = 'exodus' ",
+            "rawSql": "SELECT download \nFROM internet_speed\nwhere host = 'exodus' \nlatest on timestamp partition by download",
             "refId": "A",
             "selectedFormat": 2
           }
