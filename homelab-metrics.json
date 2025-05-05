@@ -771,7 +771,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select (age * 1.0) / (expiry)\nfrom x509_cert\nwhere common_name = 'oxn.sh'",
+            "rawSql": "select (age * 1.0) / (expiry)\nfrom x509_cert\nwhere common_name = 'oxn.sh' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "A",
             "selectedFormat": 2
           }
