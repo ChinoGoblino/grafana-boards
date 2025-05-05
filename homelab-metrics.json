@@ -1151,7 +1151,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT fs_used_bytes \nFROM kubernetes_node\nWHERE host = 'exodus'",
+            "rawSql": "SELECT fs_used_bytes \nFROM kubernetes_node\nWHERE host = 'exodus' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "A",
             "selectedFormat": 2
           },
@@ -1171,7 +1171,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT fs_available_bytes \nFROM kubernetes_node\nwhere host = 'exodus' ",
+            "rawSql": "SELECT fs_available_bytes \nFROM kubernetes_node\nwhere host = 'exodus' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "B",
             "selectedFormat": 2
           }
@@ -2250,7 +2250,7 @@
           "textMode": "auto",
           "wideLayout": true
         },
-        "pluginVersion": "11.6.0",
+        "pluginVersion": "12.0.0",
         "targets": [
           {
             "query": "from(bucket: \"homeassistant\")\n  |\u003e range(start: v.timeRangeStart, stop:v.timeRangeStop)\n  |\u003e filter(fn: (r) =\u003e\n    r._measurement == \"W\" and\n    r._field == \"value\"\n  )\n  |\u003e aggregateWindow(every: 1m, fn: mean, createEmpty: false)",
@@ -2337,7 +2337,7 @@
             "sort": "none"
           }
         },
-        "pluginVersion": "11.6.0",
+        "pluginVersion": "12.0.0",
         "targets": [
           {
             "query": "from(bucket: \"homeassistant\")\n  |\u003e range(start: v.timeRangeStart, stop:v.timeRangeStop)\n  |\u003e filter(fn: (r) =\u003e\n    r._measurement == \"W\" and\n    r._field == \"value\"\n  )\n  |\u003e aggregateWindow(every: 1m, fn: mean, createEmpty: false)",
