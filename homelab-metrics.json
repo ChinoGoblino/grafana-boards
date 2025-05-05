@@ -1473,7 +1473,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT upload \nFROM internet_speed\nWHERE host = 'exodus' ",
+            "rawSql": "SELECT upload \nFROM internet_speed\nWHERE host = 'exodus' \nlatest on timestamp partition by upload",
             "refId": "A",
             "selectedFormat": 2
           }
