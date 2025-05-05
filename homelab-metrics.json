@@ -1948,7 +1948,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT temp_input \nFROM sensors\nWHERE host = 'exodus' and chip ilike 'nvme%' and feature = 'sensor_2'",
+            "rawSql": "SELECT temp_input \nFROM sensors\nWHERE host = 'exodus' and chip ilike 'nvme%' and feature = 'sensor_2' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "A",
             "selectedFormat": 2
           },
@@ -1968,7 +1968,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT temp_input \nFROM sensors\nWHERE host = 'exodus' and chip = 'iwlwifi_1-virtual-0' and feature = 'temp1'",
+            "rawSql": "SELECT temp_input \nFROM sensors\nWHERE host = 'exodus' and chip = 'iwlwifi_1-virtual-0' and feature = 'temp1' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "B",
             "selectedFormat": 2
           },
@@ -1988,7 +1988,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT temp_input \nFROM sensors\nWHERE host = 'exodus' and chip = 'coretemp-isa-0000' and feature = 'package_id_0'",
+            "rawSql": "SELECT temp_input \nFROM sensors\nWHERE host = 'exodus' and chip = 'coretemp-isa-0000' and feature = 'package_id_0' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "C",
             "selectedFormat": 2
           }
