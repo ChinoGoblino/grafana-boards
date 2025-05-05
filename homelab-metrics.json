@@ -955,7 +955,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT uptime \nFROM system\nwhere host = 'exodus' ",
+            "rawSql": "SELECT uptime \nFROM system\nwhere host = 'exodus' \nlatest on timestamp partition by uptime",
             "refId": "A",
             "selectedFormat": 2
           }
