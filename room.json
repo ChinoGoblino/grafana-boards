@@ -25,6 +25,7 @@
     "fiscalYearStartMonth": 0,
     "graphTooltip": 0,
     "links": [],
+    "liveNow": true,
     "panels": [
       {
         "datasource": {
