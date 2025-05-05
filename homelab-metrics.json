@@ -323,7 +323,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT timestamp, count(distinct(pod_name))\nFROM kubernetes_pod_container\nWHERE condition = 'Ready'",
+            "rawSql": "SELECT timestamp, count(distinct(pod_name))\nFROM kubernetes_pod_container\nWHERE condition = 'Ready' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "A",
             "selectedFormat": 2
           }
