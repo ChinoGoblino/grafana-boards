@@ -844,7 +844,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "select enddate * 1000\nfrom x509_cert\nwhere common_name = 'oxn.sh'",
+            "rawSql": "select enddate * 1000\nfrom x509_cert\nwhere common_name = 'oxn.sh'\nlatest on timestamp partition by enddate",
             "refId": "A",
             "selectedFormat": 2
           }
