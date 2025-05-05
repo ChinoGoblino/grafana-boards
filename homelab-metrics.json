@@ -1250,7 +1250,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT (cast(last_not_null(cpu_usage_nanocores) as double) / 100000.0) / (cast(last_not_null(capacity_cpu_cores) as double) * 100.0)\nFROM kubernetes_node\nwhere host = 'exodus'",
+            "rawSql": "SELECT (cast(last_not_null(cpu_usage_nanocores) as double) / 100000.0) / (cast(last_not_null(capacity_cpu_cores) as double) * 100.0)\nFROM kubernetes_node\nwhere host = 'exodus' and timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nSAMPLE BY $__sampleByInterval",
             "refId": "A",
             "selectedFormat": 2
           }
