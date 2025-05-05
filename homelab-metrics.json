@@ -602,7 +602,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT\n    timestamp,\n    abs((rx_bytes - thing1) / ((cast(timestamp as double) - thing2)  / 100.0)) * 8 AS derivative\nFROM (\n  select\n  timestamp, \n  rx_bytes,\n  LAG(rx_bytes, 1) OVER (ORDER BY timestamp) as thing1,\n  LAG(cast(timestamp as double), 1) OVER (ORDER BY timestamp) AS thing2\n  FROM kubernetes_pod_network\n  Sample by $__sampleByInterval\n)\nWHERE\n    timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nORDER BY\n    timestamp;",
+            "rawSql": "SELECT\n    timestamp,\n    abs((rx_bytes - thing1) / ((cast(timestamp as double) - thing2)  / 100.0)) * 8 AS derivative\nFROM (\n  select\n  timestamp, \n  rx_bytes,\n  LAG(rx_bytes, 1) OVER (ORDER BY timestamp) as thing1,\n  LAG(cast(timestamp as double), 1) OVER (ORDER BY timestamp) AS thing2\n  FROM kubernetes_pod_network\n  WHERE\n    timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\n  Sample by $__sampleByInterval\n)\nORDER BY\n    timestamp;",
             "refId": "A",
             "selectedFormat": 2
           },
@@ -622,7 +622,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT\n    timestamp,\n    abs((tx_bytes - thing1) / ((cast(timestamp as double) - thing2)  / 100.0)) * 8 AS derivative\nFROM (\n  select\n  timestamp,\n  tx_bytes,\n  LAG(tx_bytes, 1) OVER (ORDER BY timestamp) as thing1,\n  LAG(cast(timestamp as double), 1) OVER (ORDER BY timestamp) AS thing2\n  FROM kubernetes_pod_network\n  Sample by $__sampleByInterval\n)\nWHERE\n    timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\nORDER BY\n    timestamp;\n    ",
+            "rawSql": "SELECT\n    timestamp,\n    abs((tx_bytes - thing1) / ((cast(timestamp as double) - thing2)  / 100.0)) * 8 AS derivative\nFROM (\n  select\n  timestamp,\n  tx_bytes,\n  LAG(tx_bytes, 1) OVER (ORDER BY timestamp) as thing1,\n  LAG(cast(timestamp as double), 1) OVER (ORDER BY timestamp) AS thing2\n  FROM kubernetes_pod_network\n  WHERE\n    timestamp \u003e= $__fromTime and timestamp \u003c= $__toTime\n  Sample by $__sampleByInterval\n)\nORDER BY\n    timestamp;\n    ",
             "refId": "B",
             "selectedFormat": 2
           }
