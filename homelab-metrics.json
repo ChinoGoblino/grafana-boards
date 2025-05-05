@@ -1327,7 +1327,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT jitter \nFROM internet_speed\nwhere host = 'exodus' ",
+            "rawSql": "SELECT jitter \nFROM internet_speed\nwhere host = 'exodus' \nlatest on timestamp partition by jitter",
             "refId": "A",
             "selectedFormat": 2
           }
