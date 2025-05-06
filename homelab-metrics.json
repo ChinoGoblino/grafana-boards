@@ -745,7 +745,7 @@
           "orientation": "auto",
           "reduceOptions": {
             "calcs": [
-              "lastNotNull"
+              "first"
             ],
             "fields": "",
             "values": false
