@@ -453,7 +453,7 @@
               }
             },
             "queryType": "sql",
-            "rawSql": "SELECT memory_working_set_bytes, container_name as string\nFROM kubernetes_pod_container\nLATEST ON timestamp PARTITION BY container_name",
+            "rawSql": "SELECT memory_working_set_bytes, container_name as string\nFROM kubernetes_pod_container\nWHERE timestamp \u003e dateadd('h', -1, now())  -- last hour\nLATEST ON timestamp PARTITION BY container_name\n",
             "refId": "A",
             "selectedFormat": 2
           }
